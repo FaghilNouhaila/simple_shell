@@ -1,0 +1,81 @@
+.TH GROUP PROJECT APR 12 2023 0x16. C - Simple Shell - simple shell manual
+
+.SH NAME
+.B 0x16. C - Simple Shell\fR \- simple UNIX command interpreater
+
+.SH SYNOPSIS
+This is a simple shell project written in C, that allows you to execute basic shell commands and navigate through directories. The project is compatible with Linux and macOS operating systems.
+
+.SH DESCRIPTION
+.B 0x16. C - Simple Shell\fR - uses a combination of helper functions and system calls to interact with the operating system. 
+.B The main function - is responsible for reading user iput, parsing the input into token and executing commands
+.B The helper function - perform calculation such as string length, tokenizing strings and duplicating strings
+.B The system calls - they interact with the operating system such as checking the file permision and executing programs
+
+To run the program, use the following command
+.B gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+To exit the shell, use the exit command
+.B $ exit
+
+.SH BUILTINS COMMANDS
+.IP _strlen(str)
+This function calculates the length of a string \fIstr\fR.
+
+.IP _strcmp(s1, s2)
+This function compares two strings \fIs1\fR and \fIs2\fR and returns an integer value indicating whether they are equal.
+
+.IP _strdup(str)
+This function duplicates a string \fIstr\fR.
+
+.IP _strtok(str, delim)
+This function tokenizes a string \fIstr\fR based on a delimiter \fIdelim\fR.
+
+.IP _realloc(ptr, old_size, new_size)
+This function reallocates memory for a pointer \fIptr\fR from \fIold_size\fR to \fInew_size\fR.
+
+.IP _putchar(c)
+This function writes a character \fIc\fR to the standard output.
+
+.IP write(fd, buffer, n)
+This system call writes \fIn\fR bytes from a \fIbuffer\fR to a file descriptor \fIfd\fR.
+
+.IP access(path, mode)
+This system call checks whether a file \fIpath\fR exists and whether the user has permission to execute it according to the \fImode\fR.
+
+.IP execve(path, args, env)
+This system call executes a program specified by the \fIpath\fR argument with \fIargs\fR as command line arguments and \fIenv\fR as environment variables.
+
+.IP fork()
+This system call creates a new process by duplicating the calling process.
+
+.IP wait(status)
+This system call suspends execution of the calling process until one of its child processes terminates.
+
+.IP getline(lineptr, n, stream)
+This system call reads a line of input from the \fIstream\fR into a buffer \fIlineptr\fR of size \fIn\fR.
+
+.IP env
+This builtin command prints all the environment variables.
+
+.IP exit [status]
+This builtin command exits the current process with an optional \fIstatus\fR code 0 - success
+1 - failure and frees up memory.
+
+.IP help
+This builtin command prints the help message of a command.
+
+.IP control operators
+These operators are used to control the execution of commands. They include:
+.B || \fR - executes the second command only if the first one fails.
+.B & \fR - runs a command in the background.
+.B && \fR - executes the second command only if the first one succeeds.
+.B ; \fR - separates two commands.
+.B ;; \fR - separates two commands and executes the second one only if the first one returns a zero exit status.
+
+.SH ERROR HANDLING AND DEBUGGING
+If an error occurs, the shell will print an error message to the standard error output. Users can use debugging tools such as print statements and stepping through the code to debug any issues they encounter.
+
+.SH AUTHORS
+Odhiambo Nicholas Otieno\fR
+Anna Wamboi Muturi\fR
