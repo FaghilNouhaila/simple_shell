@@ -6,7 +6,6 @@
  * File drp: Contains macros, func prototypes and structers
  */
 
-
 /*File inclusion*/
 
 #include <sys/types.h>
